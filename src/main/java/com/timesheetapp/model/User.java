@@ -34,31 +34,7 @@ public class User {
 	@Column(name = "role")
 	private String role;
 	
-	public void setName(String name) {
-		// TODO Auto-generated method stub
-		this.name=name;
-	}
 
-	public void setMobileNumber(String mobileNumber) {
-		// TODO Auto-generated method stub
-		this.mobileNumber = mobileNumber;
-		
-	}
-
-	public void setPassword(String password) {
-		// TODO Auto-generated method stub
-		this.password = password;
-	}
-
-	public void setEmail(String email) {
-		// TODO Auto-generated method stub
-		this.email=email;
-	}
-
-	public void setRole(String role) {
-		// TODO Auto-generated method stub
-		this.role=role;
-	}
 
 	
 }

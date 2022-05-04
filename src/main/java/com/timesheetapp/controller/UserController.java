@@ -1,6 +1,7 @@
 package com.timesheetapp.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -75,23 +76,28 @@ public class UserController {
 		}
 	}
 //
-/*	@GetMapping("admin/list")
-	public List<User> getAllUsers(@PathVariable("role") String role) {
-		//String role = "user";
-		List<User> userList = userRepository.findByuser(role);
+	@GetMapping("User/list")
+	public List<User> findAll() {
+		List<User> userList = userRepository.findAll();
 		return userList;
 	}
-*/
+
+	@GetMapping("User/listname")
+	public List<String> findcustomername() {
+		List<String> user = userRepository.listName();
+		return user;
+}
+	
 	@DeleteMapping("deletebyid/{userId}")
 	public String deleteById(@PathVariable("userId") int userId) {
 		String message = userRepository.deleteById(userId);
-	//	if(row==1) {
+		//if(row==1) {
 			return message;
 	}
 	
-//	@PatchMapping("update-password/{email}/{password}")
-//	public String updatePassword(@PathVariable("email") String email, @PathVariable("password") String password) {
-//		String message = userRepository.updatePassword(email,password);
-//		return message;
-//	}
+	@PatchMapping("updatePassword/{userId}/{password}")
+	public void updatePassword(@PathVariable("userId") Integer userId, @PathVariable("password") String password) {
+		userRepository.updatePassword(userId,password);
+		//return message;
+	}
 }
