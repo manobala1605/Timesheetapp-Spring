@@ -2,6 +2,8 @@ package com.timesheetapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -16,6 +18,7 @@ import lombok.ToString;
 @Entity(name = "timesheet_app_users")
 public class User {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int userId;
 
@@ -29,11 +32,11 @@ public class User {
 	private String password;
 
 	@Column(name = "mobile")
-	private String mobileNumber;
+	private String mobile;
 
 	@Column(name = "role")
 	private String role;
-	
+
 
 
 	
